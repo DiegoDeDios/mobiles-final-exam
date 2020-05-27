@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:padding="25dp"
+    android:background="@drawable/doublebgb"
+    >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="130dp"
+            android:src="@drawable/ic_health"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Usuario">
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contrasena"
+                app:passwordToggleEnabled="true"
+
+                >
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:text="Iniciar Sesion"
+                android:background="@drawable/btnlogin"
+                android:layout_marginTop="55dp"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/btnEmergency"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:text="Emergencia"
+                android:background="@drawable/btnemergency"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

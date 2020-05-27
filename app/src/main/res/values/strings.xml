@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FinalExam</string>
+    <string name="negativeTitle">Awwww... Snap!</string>
+    <string name="negativeText">You have failed to complete the challenge. So close! Wanna have another go at it?</string>
+    <string name="qrTitle">Informacion del paciente</string>
+    <string name="qrText">ID/Full name/Age/Gender/Allergic to medication (specify)</string>
+    <string name="infoTitle">Informacion de Cita</string>
+    <string name="infoText">Paciente:</string>
+    <string name="extraInfoText">Info:</string>
+    <string name="deleteAp">Eliminar Cita</string>
+    <string name="returnPop">Regresar</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5fa3fe</color>
+    <color name="colorPrimaryDark">#5096fb</color>
+    <color name="colorAccent">#52b7f8</color>
+    <color name="backgroundfragment">#2b2b2b</color>
+    <color name="colorRed">#ff3943</color>
+    <color name="colorRed1">#d30000</color>
+    <color name="colorRedDark">#801b20</color>
+    <color name="colorBluePopUp">#5fa3fe</color>
+    <color name="colorBluePopUp1">#596fec</color>
+    <color name="colorBlueDark">#162fba</color>
+    <color name="colorWhite">#ffffff</color>
+
+</resources>
