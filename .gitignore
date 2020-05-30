@@ -12,3 +12,4 @@
 /captures
 .externalNativeBuild
 .cxx
+/hospital-server/node_modules
