@@ -1,11 +1,18 @@
 package com.example.finalexam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CALL = 1;
 
     CardView cGenerateA,
             cListA,
@@ -48,7 +57,7 @@ public class MenuActivity extends AppCompatActivity {
         cGenerateA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, "Generar Appo", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MenuActivity.this, "Generar Appo", Toast.LENGTH_SHORT).show();
                 startGeneratorActivity();
             }
         });
@@ -56,7 +65,7 @@ public class MenuActivity extends AppCompatActivity {
         cListA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, "Lista Appo", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MenuActivity.this, "Lista Appo", Toast.LENGTH_SHORT).show();
                 startListAppointmentActivity();
             }
         });
@@ -71,14 +80,15 @@ public class MenuActivity extends AppCompatActivity {
         cCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, "Llamar", Toast.LENGTH_SHORT).show();
+                startEmergencyCall();
+                //Toast.makeText(MenuActivity.this, "Llamar", Toast.LENGTH_SHORT).show();
             }
         });
 
         qrImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, "Aparece QR", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MenuActivity.this, "Aparece QR", Toast.LENGTH_SHORT).show();
                 showPopUp();
             }
         });
@@ -118,5 +128,25 @@ public class MenuActivity extends AppCompatActivity {
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
+    }
+
+    public void startEmergencyCall(){
+        String emergencyNumber = "tel:911";
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+            return;
+        }
+        startActivity(new Intent(Intent.ACTION_CALL , Uri.parse(emergencyNumber)));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == REQUEST_CALL){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                startEmergencyCall();
+            }else{
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
